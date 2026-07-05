@@ -30,3 +30,6 @@ vim.opt.scrolloff = 16
 -- line width
 vim.opt.signcolumn = "yes"
 vim.opt.colorcolumn = "120"
+
+-- allow copying clipboard
+vim.api.nvim_set_option("clipboard","unnamed")

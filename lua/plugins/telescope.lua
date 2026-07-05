@@ -1,0 +1,23 @@
+return {
+  "nvim-telescope/telescope.nvim",
+  dependencies = { "nvim-lua/plenary.nvim" },
+  keys = {
+    { "<leader>ff", function() require("telescope.builtin").find_files() end, desc = "Find Files" },
+    { "<leader>fg", function() require("telescope.builtin").live_grep() end, desc = "Live Grep" },
+    { "<leader>fb", function() require("telescope.builtin").buffers() end, desc = "Buffers" },
+    { "<leader>fh", function() require("telescope.builtin").help_tags() end, desc = "Help Tags" },
+  },
+  opts = {
+    defaults = {
+      mappings = {
+        i = {
+          ["<C-o>"] = function(p_bufnr)
+            require("telescope.actions").send_selected_to_qflist(p_bufnr)
+            vim.cmd("cfdo edit")
+          end,
+        },
+      },
+    },
+  },
+}
+
